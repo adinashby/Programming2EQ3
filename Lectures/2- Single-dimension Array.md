@@ -223,7 +223,7 @@ for (char c : str.toCharArray())
 In a regular for loop we have to create and control an index to visit elements in a collection. But the fact is that, we only care about the values of the elements in the collection most of the time, not the value of the index.
 
 ```java
-// Regualr for loop for a String. String only supports regular for loop
+// Regular for loop for a String. String only supports regular for loop
 String str = "hello";
 
 for (int i = 0; i < str.length(); i++)
@@ -251,7 +251,7 @@ Enhanced-for **can be used to go through a collection and read each of its eleme
 
 ```java
 // Array can support both regular for loop and enhanced-for loop
-double[] num = {1.1, 2.2, 3.3, 4.4};
+double[] nums = {1.1, 2.2, 3.3, 4.4};
 
 // Regular for loop for an array
 for (int i = 1; i < nums.length - 1; i += 2)
@@ -416,33 +416,48 @@ public class Account {
 ```
 
 ```java
-Account account = new Account();
-Account[] accounts = { new Account(), new Account(1242, "Adin", 20), new Account(4212, "John", 4332) };
+import java.util.Arrays;
 
-Account[] accounts = new Account[3];    // { null, null, null }
-Arrays.fill(accounts, new Account());
+public class AccountTest {
 
-Account[] accounts;
+	public static void main(String[] args) {
+//		Account account = new Account();
+//		Account[] accounts = { new Account(), new Account(1242, "Adin", 20), new Account(4212, "John", 4332) };
+//
+//		Account[] accounts = new Account[3];    // { null, null, null }
+//		Arrays.fill(accounts, new Account());
 
-Account account1 = new Account();
-Account account2 = new Account(1242, "Adin", 20);
-Account account3 = new Account(4212, "John", 4332);
+		Account[] accounts;
 
-accounts = new Account[] { account1, account2, account3 };
+		Account account1 = new Account();
+		Account account2 = new Account(1242, "Adin", 20);
+		Account account3 = new Account(4212, "John", 4332);
 
-System.out.println(accounts[0].toString());
+		accounts = new Account[] { account1, account2, account3 };
 
-for(Account account : accounts) {
-    account.increaseInterestRate();
+		System.out.println(accounts[0]);
+		System.out.println();
+
+		for(Account account : accounts) {
+		    account.increaseInterestRate();
+		    //System.out.println(account);
+		}
+
+
+//		for(Account account : accounts) {
+//		    System.out.println(account);
+//		    System.out.println();
+//		}
+
+		for(int i = 0; i < accounts.length; i++) {
+		    accounts[i].increaseInterestRate();
+		}
+
+		for(Account account : accounts) {
+		    System.out.println(account);
+		    System.out.println();
+		}
+
+	}
 }
-
-for(Account account : accounts) {
-    System.out.println(account);
-    System.out.println();
-}
-
-for(int i = 0; i < accounts.length; i++) {
-    accounts[i].increaseInterestRate();
-}
-
 ```
