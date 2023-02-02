@@ -461,3 +461,11 @@ public class AccountTest {
 	}
 }
 ```
+
+## 7 In-class Exercises
+
+1. Write a Java program that reads the an array from the user and finds the smallest and largest element in that array.
+
+2. Write a Java program that reads an even-numbered array (in terms of length) and finds the sum of the odd indices in that array.
+
+3. Write a Java program that reads an array of cars (from Car class) as input and returns the car objects in an array that is "blue" in color.
