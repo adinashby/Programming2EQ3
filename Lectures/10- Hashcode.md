@@ -30,9 +30,9 @@ For a superclass, you can generate the `hashCode()` directly, and choose the dat
 @Override
 public int hashCode() {
     int hash = 5;
-    hash = 53 * hash + Objects.hashCode(this.id);
-    hash = 53 * hash + Objects.hashCode(this.title);
-    hash = 53 * hash + (int) (Double.doubleToLongBits(this.price) ^ (Double.doubleToLongBits(this.price) >>> 32));
+    hash += 53 * hash + Objects.hashCode(this.id);
+    hash += 53 * hash + Objects.hashCode(this.title);
+    hash += 53 * hash + (int) (Double.doubleToLongBits(this.price) ^ (Double.doubleToLongBits(this.price) >>> 32));
     return hash;
 }
 ```
@@ -45,8 +45,8 @@ For a subclass, you need to call the superclass `hashCode()` to generate a hashc
 @Override
     public int hashCode() {
         int hash = 3;
-        hash = 41 * hash + super.hashCode();		// calling the super class hashcode()
-        hash = 41 * hash + (int) (Double.doubleToLongBits(this.publicationFrequency)
+        hash += 41 * hash + super.hashCode();		// calling the super class hashcode()
+        hash += 41 * hash + (int) (Double.doubleToLongBits(this.publicationFrequency)
                 ^ (Double.doubleToLongBits(this.publicationFrequency) >>> 32));
         return hash;
     }
@@ -80,11 +80,11 @@ public class User {
         
         int hash = 7;
         
-        hash = 31 * hash + (int) id;
-        hash = 31 * hash + (name == null ? 0 : name.hashCode());
-        hash = 31 * hash + (email == null ? 0 : email.hashCode());
+        hash += 31 * hash + (int) id;
+        hash += 31 * hash + (name == null ? 0 : name.hashCode());
+        hash += 31 * hash + (email == null ? 0 : email.hashCode());
         
-        hash = 53 * hash + (int) (Double.doubleToLongBits(id) ^ Double.doubleToLongBits(id) >>> 32);
+        hash += 53 * hash + (int) (Double.doubleToLongBits(id) ^ Double.doubleToLongBits(id) >>> 32);
         
         return hash;
     }
