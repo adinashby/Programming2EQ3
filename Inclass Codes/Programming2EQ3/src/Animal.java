@@ -1,5 +1,6 @@
+import java.util.Objects;
 
-public class Animal {
+public abstract class Animal  {
 	String furType;
 	
 	public Animal() {
@@ -10,11 +11,20 @@ public class Animal {
 		this.furType = furType;
 	}
 	
-	public void makeSound() {
-		System.out.println("Animal makes a sound");
-	}
+	public abstract void makeSound();
 	
 	public void doSomething() {
 		System.out.println("I'm doing smth");
+	}
+	
+	@Override
+	public int hashCode() {
+		int hash = 5;
+		
+		hash = 25 * hash + Objects.hashCode(this.furType);
+		
+		return hash;
+		// 964128
+		// 964964
 	}
 }

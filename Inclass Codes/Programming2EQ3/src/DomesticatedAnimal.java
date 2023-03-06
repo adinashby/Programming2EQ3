@@ -1,5 +1,5 @@
 
-public class DomesticatedAnimal extends Animal {
+public abstract class DomesticatedAnimal extends Animal {
 	boolean isCute;
 	
 	public DomesticatedAnimal() {
